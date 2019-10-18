@@ -1,0 +1,10 @@
+@model User
+ <a href="/dashboard"> Home</a>
+
+<h5>Name : @Model.FirstName</h5>
+<h5>Allias : @Model.LastName</h5>
+<h5>Email : @Model.Email</h5>
+<hr>
+
+<h4>Total Number of Post : @Model.createdIdeas.Count</h4>
+<h4>Totol number of likes : @ViewBag.mySum</h4>

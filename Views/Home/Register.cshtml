@@ -1,0 +1,37 @@
+﻿@model User
+
+<div class = "row">
+    <h1 class="col">Register to this Cool Site</h1>
+    <a class="col" href ="/login">Login</a>
+
+</div>
+
+<form action = "/register" method="post">
+    <div class="row">
+        <div class= "col">
+            <span asp-validation-for="FirstName"></span><br>
+            Name : <br>
+            <input asp-for="FirstName" type="text"><br>
+            <span asp-validation-for="LastName"></span><br>
+            Alias : <br>
+            <input asp-for="LastName" type="text"><br>
+            <span asp-validation-for="Email"></span><br>
+            Email : <br>
+            <input asp-for="Email" type="text"><br>
+
+        </div>
+
+         <div class= "col">
+            <span asp-validation-for="Password"></span><br>
+            Password : <br>
+            <input asp-for="Password" type="password"><br>
+            <span asp-validation-for="Confirm"></span><br>
+            Confirm Password : <br>
+            <input asp-for="Confirm" type="password"><br>
+        </div>
+        
+
+    </div>
+
+    <button type="submit">Submit</button>
+</form>

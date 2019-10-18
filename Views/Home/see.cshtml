@@ -1,0 +1,28 @@
+@model Idea
+
+    <a href="/dashboard"> Home</a>
+
+
+<h4><a>@Model.creator.LastName</a> says : @Model.Description</h4><br>
+<h5>People who liked this post :</h5>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Alias</th>
+      <th scope="col">Real Name</th>
+    </tr>
+  </thead>
+  <tbody>
+      
+      @if (Model==null){}
+      else{
+      @foreach(var i in Model.people){
+    <tr>
+      <td><a href="/users/@i.User.UserId">@i.User.LastName</a></td>
+      <td>@i.User.FirstName</td>
+    </tr>
+    }
+}
+  </tbody>
+</table>

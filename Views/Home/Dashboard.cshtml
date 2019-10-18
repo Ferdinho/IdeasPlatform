@@ -1,0 +1,35 @@
+@model Idea
+
+<div class ="row">
+    <div class="col"><h4>Welcome : </h4>@ViewBag.connectedName</div><br>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <a href="/logout"> Logout</a>
+</div><br>
+
+
+<form action="/createIdea" method="POST">
+
+    <span asp-validation-for="Description"></span><br>
+    Description : <br>
+            <textarea asp-for="Description" rows="5" cols="30"></textarea><br>
+    <input type="hidden" asp-for="UserId" value="@ViewBag.connected">
+    <button type="submit">Add an Idea</button>
+
+</form><br>
+
+<h4>All ideas<h4><br>
+
+@foreach(var idea in ViewBag.AllIdeas){
+    <a href="/users/@idea.creator.UserId">@idea.creator.LastName says :</a>
+    <p>@idea.Description</p>
+
+    @if(ViewBag.connected==idea.creator.UserId){
+        <p><button><a href="delete/@idea.IdeaId">Delete</a></button>|<a href="@idea.IdeaId">@idea.people.Count people </a>Liked this</p><br>
+    }
+    else{
+                <p><a href="/reservation/@ViewBag.connected/@idea.IdeaId">Like</a>|<a href="@idea.IdeaId">@idea.people.Count people </a>Liked this</p><br>
+        }
+    }
+

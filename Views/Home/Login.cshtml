@@ -1,0 +1,18 @@
+﻿@model LoginUser
+
+<div class = "row">
+    <h1 class="col">Login to this Cool Site</h1>
+    <a class="col" href ="/">Register</a>
+
+</div>
+
+<form action = "/loginPost" method="post">
+            <span asp-validation-for="Email"></span><br>
+            Email : <br>
+            <input asp-for="Email" type="text"><br>
+            <span asp-validation-for="Password"></span><br>
+            Password : <br>
+            <input asp-for="Password" type="password"><br>
+
+    <button type="submit">Submit</button>
+</form>
